@@ -31,3 +31,4 @@ Assumptions:
 
 3. A customer is assigned the smallest available table that can seat their group. This is not necessarily efficient as it could result in a group of 1 being assigned an 8 seater.
 
+4. For reservation dates, the format is "%d-%m-%Y %I:%M %p". Eg. "27-09-2015 09:00 PM". Timezone is assumed to be UTC for simplicity.
