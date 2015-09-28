@@ -1,28 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Created with Ruby 2.1 and Rails 4.1
 
-Things you may want to cover:
+Installation steps:
 
-* Ruby version
+1. Clone the github repo.
+git clone https://github.com/ajaymallya/reservations
 
-* System dependencies
+2. bundle install
 
-* Configuration
+3. rake db:migrate
 
-* Database creation
+4. rails s
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+5. The homepage is at localhost:3000
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Run tests:
+
+1. RAILS_ENV=test rake db:migrate
+
+2. rake spec
+
+
+Assumptions:
+
+1. There are 2 tables each with capacities 2, 4 and 8.
+
+2. Groups larger than 8 people require multiple reservations.
+
+3. A customer is assigned the smallest available table that can seat their group. This is not necessarily efficient as it could result in a group of 1 being assigned an 8 seater.
+
