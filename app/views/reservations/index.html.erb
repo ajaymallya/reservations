@@ -1,0 +1,39 @@
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, style: "color:red" %>
+<% end %>
+
+<h1> Current Reservations </h1>
+
+<table border="1">
+  <tr>
+    <th>Customer Name</th>
+    <th>Group Size</th>
+    <th>Date and Time </th>
+    <th> Table Id </th>
+  </tr>
+  <% @reservations.each do |reservation| %>
+    <tr>
+      <td><%= reservation.customer_name %> </td>
+      <td><%= reservation.group_size %> </td>
+      <td><%= reservation.reserved_at %> </td>
+      <td><%= reservation.restaurant_table_id %>
+    </tr>
+  <% end %>
+</table>
+
+<br><br><br>
+
+<h2> Add a reservation </h2>
+<%= form_for Reservation.new, url: {action: 'create'} do |f| %>
+  <%= f.label :customer_name %>
+  <%= f.text_field :customer_name %>
+  <br><br><br>
+  <%= f.label :group_size %>
+  <%= f.text_field :group_size %>
+  <br><br><br>
+  <%= f.label :reserved_at %>
+  <%= f.text_field :reserved_at %>
+  <br><br><br>
+  <%= f.submit "Create" %>
+<% end %>
+
